@@ -40,11 +40,6 @@ function printReceipt(barcodes) {
     console.log(getReceiptStr(getItemQuantityMap(barcodes)));
 }
 
-// function getReceiptStr(barcodes) {
-//     let itemQuantityMap = getItemQuantityMap(barcodes);
-//     return getFormatReceiptDetails(iemQuantityMap);
-// }
-
 function getReceiptStr(itemQuantityMap) {
     let resultStr = "\n***<store earning no money>Receipt ***\n";
     let total = 0;
@@ -71,25 +66,10 @@ function getItemQuantityMap(barcodes) {
             itemQuantityMap.set(barcode, 1);
         }
     }
-    // for(let i = 0; i < barcodes.length; i++) {
-    //     let barcode = barcodes[i];
-    //     let item = getItemInfoByBarcode(barcode);
-    //     if(itemMap.has(item.barcode)){
-    //         itemMap.set(item.barcode, itemMap.get(barcode) + 1); // 对应barcode的item数量 +1
-    //     }else {
-    //         itemMap.set(item.barcode , 1);  // 第一次出现的item，数量设为 1
-    //     }
-    // }
     return itemQuantityMap;
 }
 
 function getItemByBarcode(barcode) {
-    // DATA_ITEMS.find(item => {
-    //     if(barcode === item.barcode){
-    //         return item;
-    //     }
-    // })
-    // return null;
     for (let i = 0; i < DATA_ITEMS.length; i++) {
         if (barcode == DATA_ITEMS[i].barcode) {
             return DATA_ITEMS[i];
